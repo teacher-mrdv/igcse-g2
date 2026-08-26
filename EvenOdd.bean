@@ -1,0 +1,11 @@
+// given an input number, output whether it's even or odd
+DECLARE Number : INTEGER
+OUTPUT "Enter an number"
+INPUT Number
+// is Number divisible by 2?
+IF MOD(Number, 2) = 0
+  THEN
+    OUTPUT "Even"
+  ELSE
+    OUTPUT "Odd"
+ENDIF

@@ -1,0 +1,21 @@
+// Uses a count-controlled loop from 1 to 50
+// Uses an appropriate prompt to ask for a number between 1 and 100
+// this version validates the input and uses a FOR loop
+// Totals the numbers as they are entered
+// Outputs the total after the loop has completed with an appropriate message.
+DECLARE Total, Count, Number: INTEGER
+Total <- 0
+FOR Count <- 1 TO 5
+    REPEAT
+        OUTPUT "Input a number between 1 and 100"
+        INPUT Number
+        IF Number < 1 OR Number > 100
+          THEN
+            OUTPUT "Number outside of valid range!"
+        ENDIF
+    UNTIL Number >= 1 AND Number <= 100
+    // range check
+    Total <- Total + Number
+NEXT Count
+
+OUTPUT "The total is ", Total

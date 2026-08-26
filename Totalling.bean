@@ -1,0 +1,26 @@
+// Uses a count-controlled loop from 1 to 50
+// Uses an appropriate prompt to ask for a number between 1 and 100
+// Totals the numbers as they are entered
+// Outputs the total after the loop has completed with an appropriate message.
+DECLARE Total, Count : INTEGER
+Total <- 0
+Count <- 1
+REPEAT
+    OUTPUT "Input a number between 1 and 100"
+    INPUT Number
+    Total <- Total + Number
+    Count <- Count + 1
+UNTIL Count > 5 // 50
+OUTPUT "The total is ", Total
+
+// with a WHILE loop:
+// DECLARE Total, Count : INTEGER // don't DECLARE twice
+Total <- 0
+Count <- 0
+WHILE Count < 5 DO
+    OUTPUT "Input a number between 1 and 100"
+    INPUT Number
+    Total <- Total + Number
+    Count <- Count + 1
+ENDWHILE
+OUTPUT "The total is ", Total

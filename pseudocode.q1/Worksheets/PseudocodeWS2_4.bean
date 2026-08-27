@@ -1,0 +1,13 @@
+// Write pseudocode that prompts the user to
+// enter a single whole number. Using a FOR loop,
+//output the multiplication table for that number
+// from 1 to 12 (e.g., displaying
+//Number * 1, Number * 2, up to Numbe r * 12).
+
+DECLARE Number, Product : INTEGER
+OUTPUT "Enter an integer"
+INPUT Number
+FOR Counter <- 1 TO 12
+    Product <- Number * Counter
+    OUTPUT Number, " * ", Counter, " = ", Product
+NEXT Counter

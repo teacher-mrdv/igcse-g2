@@ -1,1 +1,33 @@
 // SELECTION Example: CASE OF
+// spell out each digit of a number as words
+DECLARE Number, Processing, Digit : INTEGER
+DECLARE NumberString, DigitString : STRING
+OUTPUT "Enter a positive integer:"
+INPUT Number
+// validation with WHILE loop
+WHILE Number < 0 DO
+    OUTPUT "Error-Enter a positive integer:"
+    INPUT Number
+ENDWHILE
+Processing <- Number
+NumberString <- ""
+DigitString <- ""
+WHILE Processing > 0 DO
+    Digit <- MOD(Processing, 10)
+    CASE OF Digit
+        0 : DigitString <- "Zero"
+        1 : DigitString <- "One"
+        2 : DigitString <- "Two"
+        3 : DigitString <- "Three"
+        4 : DigitString <- "Four"
+        5 : DigitString <- "Five"
+        6 : DigitString <- "Six"
+        7 : DigitString <- "Seven"
+        8 : DigitString <- "Eight"
+        9 : DigitString <- "Nine"
+        OTHERWISE OUTPUT "Error processing number"
+    ENDCASE
+    NumberString <- DigitString + " " + NumberString
+    Processing <- DIV(Processing, 10)
+ENDWHILE
+OUTPUT Number, " = ", NumberString

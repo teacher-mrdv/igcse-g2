@@ -26,7 +26,7 @@ Found <- false
 FOR Index <- 1 TO Max
     IF UCASE(Key) = UCASE(Names[Index])
       THEN
-        False <- true
+        Found <- true
         OUTPUT Key, " found at index ", Index
     ENDIF
 NEXT Index

@@ -1,0 +1,18 @@
+DECLARE SeatNumber : INTEGER
+
+REPEAT
+    OUTPUT "Enter seat number (1-40):"
+    INPUT SeatNumber
+UNTIL SeatNumber >= 1 AND SeatNumber <= 40
+OUTPUT "Seat number confirmed: ", SeatNumber
+
+SeatNumber <- -1
+WHILE SeatNumber < 1 OR SeatNumber > 40 DO
+    OUTPUT "Enter seat number (1-40):"
+    INPUT SeatNumber
+    IF SeatNumber < 1 OR SeatNumber > 40
+      THEN
+        OUTPUT "Error-Seat Number MUST be between 1 and 40"
+    ENDIF
+ENDWHILE
+OUTPUT "Seat number confirmed: ", SeatNumber

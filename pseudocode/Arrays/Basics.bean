@@ -1,0 +1,20 @@
+// Array basics: declaring, inputting data into an array,
+// displaying array contents
+
+// 1: DECLARE an ARRAY
+DECLARE Names : ARRAY[1:5] OF STRING
+DECLARE Len : INTEGER
+
+Len <- 5
+OUTPUT "Inputting data into a String Array of names"
+FOR Index <- 1 TO Len
+    OUTPUT "Enter name #", Index
+    INPUT Names[Index]
+NEXT Index
+
+OUTPUT "\nDisplaying the content of each index of the String Array of names"
+FOR Index <- 1 TO Len
+    OUTPUT "Name @ index ", Index, " = ", Names[Index]
+NEXT Index
+
+

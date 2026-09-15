@@ -1,4 +1,4 @@
-// Pseudocode worksheet #1, question 5:
+// Pseudocode worksheet #1, question 5: SELECTION
 // A driving simulator ask the user to enter the current traffic light color
 // as a single uppercase letter:
 // 'R' for Red
@@ -7,7 +7,7 @@
 // If 'R' is entered, output "Stop". If 'Y' is entered, output "Prepare to stop". If
 // 'G' is entered, output "Go". For any other input, output "Invalid light color".
 // Write pseudocode using a CASE OF structure
-DECLARE LightColour : CHAR
+DECLARE LightColour: CHAR
 OUTPUT "Enter traffic light color (R, Y, G): "
 INPUT LightColour
 LightColour <- UCASE(LightColour)
@@ -17,3 +17,25 @@ CASE OF LightColour
     'G': OUTPUT "Go"
     OTHERWISE OUTPUT "Invalid light color"
 ENDCASE
+
+// Alternatively, this could be coded using selection with IF
+// Write pseudocode using a CASE OF structure
+OUTPUT "Enter traffic light color (R, Y, G): "
+INPUT LightColour
+LightColour <- UCASE(LightColour)
+IF LightColour = 'R'
+  THEN
+    OUTPUT "Stop"
+  ELSE
+    IF LightColour = 'Y'
+      THEN
+        OUTPUT "Prepare to stop"
+      ELSE
+        IF LightColour = 'G'
+          THEN
+            OUTPUT "Go!"
+          ELSE
+            OUTPUT "Invalid light colour"
+        ENDIF
+    ENDIF
+ENDIF

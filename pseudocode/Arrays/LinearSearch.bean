@@ -1,0 +1,36 @@
+// Algorithm #1: linear search
+// (In this case, the array is given for easier testing)
+
+// 1: DECLARE an ARRAY
+DECLARE Names : ARRAY[1:6] OF STRING
+DECLARE Key : STRING
+DECLARE Max : INTEGER
+DECLARE Found : BOOLEAN
+
+Names <- { "Lois", "Peter", "Meg", "Brian", "Meg", "Chris" }
+Max <- 6
+OUTPUT "\nDisplaying the content of each index of the String Array of names"
+FOR Index <- 1 TO Max
+    OUTPUT "Name @ index ", Index, " = ", Names[Index]
+NEXT Index
+
+// input a name to find in the list
+REPEAT
+    OUTPUT "Enter a name:"
+    INPUT Key
+UNTIL LENGTH(Key) > 0 // LENGTH check validation
+
+// Linear search. Reports duplicates as well.
+// UCASE makes the search case insensitive (ignores case).
+Found <- false
+FOR Index <- 1 TO Max
+    IF UCASE(Key) = UCASE(Names[Index])
+      THEN
+        Found <- true
+        OUTPUT Key, " found at index ", Index
+    ENDIF
+NEXT Index
+IF Found = false
+  THEN
+    OUTPUT Key, " is not found in the array of names."
+ENDIF

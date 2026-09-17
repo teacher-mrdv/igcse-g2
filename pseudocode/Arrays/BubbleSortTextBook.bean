@@ -1,0 +1,36 @@
+// Algorithm #2: bubble sort optimised
+// (In this case, the array is given for easier testing)
+
+// 1: DECLARE an ARRAY
+DECLARE Names : ARRAY[1:5] OF STRING
+DECLARE Swapped : BOOLEAN
+DECLARE Temp : STRING
+DECLARE Last : INTEGER
+
+Names <- { "Lois", "Peter", "Meg", "Brian", "Chris" }
+Last <- 5
+OUTPUT "\nDisplaying the content of each index of the String Array of names"
+FOR Index <- 1 TO Last
+    OUTPUT "Name @ index ", Index, " = ", Names[Index]
+NEXT Index
+
+// bubble sort
+REPEAT
+    Swapped <- false
+    FOR Index <- 1 TO Last-1
+        IF Names[Index] > Names[Index+1]
+          THEN
+            // SWAP adjacent element if out of order
+            Temp <- Names[Index]
+            Names[Index] <- Names[Index+1]
+            Names[Index+1] <- Temp
+            Swapped <- true
+        ENDIF
+    NEXT Index
+    Last <- Last - 1
+UNTIL Swapped = false OR Last = 1
+
+OUTPUT "\nDisplaying the content of each index of the String Array of names"
+FOR Index <- 1 TO 5
+    OUTPUT "Name @ index ", Index, " = ", Names[Index]
+NEXT Index

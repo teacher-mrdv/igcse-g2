@@ -156,8 +156,7 @@ def calculate_total(marks:list) -> int:
 # main program
 
 student_marks:list = [12, 18, 15, 20, 14]
-print( 
-"The total is", calculate_total(student_marks) )
+print( "The total is", calculate_total(student_marks) )
 
 
 #10

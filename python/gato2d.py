@@ -16,11 +16,9 @@ def print_board():
         print("\n-------")
     
 print_board()
-col = 0
-row = 0
+# initialise variables
 # starting player
 player_turn = "X"
-game_won = False
 
 # play until all 9 spaces are taken (tie) (or until there is a winner)
 for counter in range(1, 10):
@@ -38,38 +36,39 @@ for counter in range(1, 10):
             if (col < 1 or col > 3):
                 print("The column must be between 1 and 3.")
         # adjust for Python 2D array/list indices
-        col -= 1
-        row -= 1
+        col = col - 1
+        row = row - 1
+        # check if the chosen row and column (the chosen cell/spot) is empty or not
         if board[row][col] == '-':
             board[row][col] = player_turn
             valid_move = True
         else:
             print("Oops, that spot was already taken. Please select another spot.")
 
+    # update the board/print the board with the new move
     print_board()
 
     # Win detection logic
-    has_won = False
+    game_won = False
 
     # Check rows and columns
     for i in range(3): # there are 3 rows and 3 columns
         # check if each row is taken by the player
         if board[i][0] == board[i][1] == board[i][2] == player_turn:
-            has_won = True
+            game_won = True
         # check if each column is taken by the player
         if board[0][i] == board[1][i] == board[2][i] == player_turn:
-            has_won = True
+            game_won = True
 
     # Check diagonals
     if board[0][0] == board[1][1] == board[2][2] == player_turn:
-        has_won = True
+        game_won = True
     if board[0][2] == board[1][1] == board[2][0] == player_turn:
-        has_won = True
+        game_won = True
 
     # End game if a win is detected
-    if has_won:
+    if game_won:
         print("\nPlayer " + player_turn + " wins!")
-        game_won = True
         break
 
     # Switch player turn

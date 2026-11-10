@@ -80,3 +80,5 @@ for counter in range(1, 10):
 # Announce tie if all 9 turns complete without a winner
 if not game_won:
     print("\nIt's a tie!")
+    
+print("game over")

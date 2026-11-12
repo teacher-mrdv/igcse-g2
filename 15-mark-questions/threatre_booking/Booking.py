@@ -24,12 +24,13 @@ evening = [ [True, True, True, False, True, False, False, False, True, True, Tru
             [False, False, True, False, False, False, True, True, False, True, True, True, True, True, True, True, False, False, False, False],
             [True, True, False, True, False, True, False, True, False, True, True, True, False, False, False, True, True, False, True, False] ]
 
-MAXROWS:int = len(evening)            # or, 10
-MAXCOLUMNS:int = len(evening[0])      # or, 20
+MAXROWS: int = len(evening)            # or, 10
+MAXCOLUMNS: int = len(evening[0])      # or, 20
 FULLHOUSE: int = MAXROWS * MAXCOLUMNS # or = 200
 
-def theatreLayout():
-    # easiest way to print the column header
+
+def theatre_layout():
+    
     print('\n   1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0\n')
     for row in range(MAXROWS):
         print( (row+1) % 10, end='  ')
@@ -43,4 +44,37 @@ def theatreLayout():
         print() # go to next row
     # next row
     print('\nB = Booked; A = Available')
+
+# counts and outputs the number of seats already booked for the evening
+def booked_seats():
+    booked_counter: int = 0
+    for row in range(MAXROWS):
+        for column in range(MAXCOLUMNS):
+            if evening[row][column] == True :
+                booked_counter = booked_counter + 1
+    return booked_counter
+
+# inputs and validates the number of seats to book
+def input_seats():
+    seats: int = 0
+    while seats < 1 or seats > 4:
+        seats = int(input("How many seats (1~4)? "))
+        if seats < 1 or seats > 4:
+            print("Invalid number of seats entered!")
+    return seats
+
+
+
+# main
+theatre_layout()
+print("Booked seats =", booked_seats())
+available_seats: int = FULLHOUSE -  booked_seats()
+booking: int = input_seats()
+while booking > available_seats:
+    print("Only", available_seats, " are available.")
+    booking = input_seats()
+    
+theatre_layout()
+
+
 
